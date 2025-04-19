@@ -32,7 +32,7 @@ maxretry = 5  # "maxretry" is the number of failures before a host get banned
 
 поменяла порт на нужный и ```seq_timeout``` увеличила, остальное оставила
 ![alt text](screen/4-3.png)
- 
+
 **проверяем, что порт явно закрыт**
 ![alt text](screen/4-6.png)
 ![alt text](screen/4-7.png)
@@ -57,3 +57,26 @@ google-authenticator
 
 **теперь при входе нужен одноразовый пароль из Google Authenticator**
 ![alt text](screen/5-4.png)
+
+### настройка GeoIP-блокировки
+
+устанавливаем нужные библиотечки
+```bash 
+sudo apt install xtables-addons-common
+sudo apt install xtables-addons-common libtext-csv-xs-perl
+```
+загружаем базу данных стран
+```bash
+sudo /usr/libexec/xtables-addons/xt_geoip_dl
+sudo mkdir -p /usr/share/xt_geoip
+sudo /usr/libexec/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip
+```
+![alt text](screen/6-1.png)
+разрешаем только РФ и сохраняем
+![alt text](screen/6-2.png)
+
+**проверяем, что блокировка работает**
+![alt text](screen/6-4.png)
+
+**при подключении под proxy сервером другой страны - никакого вывода, подключение невозможно**
+![alt text](screen/6-3.png)
