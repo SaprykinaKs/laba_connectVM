@@ -41,3 +41,19 @@ maxretry = 5  # "maxretry" is the number of failures before a host get banned
 ![alt text](screen/4-4.png)
 ![alt text](screen/4-5.png)
 
+### настройка двухфактурной аутентификации
+```bash
+sudo apt install libpam-google-authenticator -y
+google-authenticator
+```
+сканим qr и соглашаемся на нужные штучки
+![alt text](screen/5-1.png)
+ 
+добавим в файл ```/etc/pam.d/sshd``` строчку:
+![alt text](screen/5-2.png)
+и в файл ```/etc/ssh/sshd_config ```:
+![alt text](screen/5-3.png)
+перезапускаем командой ```sudo systemctl restart sshd``` 
+
+**теперь при входе нужен одноразовый пароль из Google Authenticator**
+![alt text](screen/5-4.png)
