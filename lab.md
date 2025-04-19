@@ -19,6 +19,10 @@ bantime = 600 # "bantime" is the number of seconds that a host is banned
 findtime = 600 # A host is banned if it has generated "maxretry" during the last "findtime"
 maxretry = 5  # "maxretry" is the number of failures before a host get banned
 ```
+попытки зайти с неправильным паролем, доступа больше нет
+![alt text](screen/3-2.png)
+ура доступ есть, в статусе видно прошлый бан
+![alt text](screen/3-3.png)
 
 ### настройка portknocking
 ![alt text](screen/4-1.png)
@@ -31,6 +35,7 @@ maxretry = 5  # "maxretry" is the number of failures before a host get banned
  
 **проверяем, что порт явно закрыт**
 ![alt text](screen/4-6.png)
+![alt text](screen/4-7.png)
 
 **стучимся и заходим, при выходе закрываем**
 ![alt text](screen/4-4.png)
